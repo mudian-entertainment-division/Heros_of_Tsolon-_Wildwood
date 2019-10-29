@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6410098951050669513}
   - component: {fileID: 6410098951050669517}
   - component: {fileID: 6410098951050669515}
+  - component: {fileID: 3539278477120581687}
   - component: {fileID: 6410098951050669514}
   - component: {fileID: 6410098951050669519}
   - component: {fileID: 6410098951050669516}
@@ -112,6 +113,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3539278477120581687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6410098951050669518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b86462cb669a46448b933a1792fa5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 100
+  curMana: 100
+  maxHealth: 100
+  maxMana: 100
+  stats: []
+  healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
+  radialHealthIcon: {fileID: 0}
+  radialManaIcon: {fileID: 0}
+  damageImage: {fileID: 0}
+  flashSpeed: 5
+  flashColor: {r: 1, g: 0, b: 0, a: 0.2}
 --- !u!114 &6410098951050669514
 MonoBehaviour:
   m_ObjectHideFlags: 0
