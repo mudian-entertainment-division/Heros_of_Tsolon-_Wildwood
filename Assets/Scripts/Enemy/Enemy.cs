@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
+    public int health;
     public float speed = 10f;
+    private bool isHit;
+    bool damaged;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -23,6 +26,16 @@ public class EnemyMovement : MonoBehaviour
         {
             GetNextWaypoint();
         }
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        if (isHit)
+        {
+            damaged = true;
+            isHit = false;
+        }
     }
 
     void GetNextWaypoint()
@@ -35,5 +48,10 @@ public class EnemyMovement : MonoBehaviour
 
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        isHit = true;
     }
 }
