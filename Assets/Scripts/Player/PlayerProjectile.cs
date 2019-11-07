@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerController))]
 public class PlayerProjectile : MonoBehaviour
 {
     public Transform firePoint;
@@ -15,7 +14,7 @@ public class PlayerProjectile : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Vector3 direction = player.GetHitPoint() - transform.position;
             direction.y = 0f;

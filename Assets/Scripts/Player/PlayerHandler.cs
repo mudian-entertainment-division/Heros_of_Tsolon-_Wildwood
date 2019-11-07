@@ -8,15 +8,12 @@ public class PlayerHandler : MonoBehaviour
 {
     [Header("Value Variables")]
 
-    public float curHealth;
-    public float curEnergy, maxHealth, maxEnergy;
-    public float energyPerSecond = 1f;
+    public float curHealth, maxHealth;
     public float healthPerSecond = 1f;
 
     [Header("Value Variables")]
 
     public Image radialHealthIcon;
-    public Image radialEnergyIcon;
 
     [Header("Damage Effect Variables")]
 
@@ -32,8 +29,6 @@ public class PlayerHandler : MonoBehaviour
     void Update()
     {
         HealthChange();
-
-        EnergyChange();
 
         void HealthChange()
         {
@@ -63,26 +58,9 @@ public class PlayerHandler : MonoBehaviour
         {
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
-
-        void EnergyChange()
-        {
-            float amount = Mathf.Clamp01(curEnergy / maxEnergy);
-            radialEnergyIcon.fillAmount = amount;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            curEnergy -= 1;
-        }
-
-        if (curEnergy > 10)
-        {
-            curEnergy = 10;
-        }
-
     }
     private void Timer()
     {
-        curEnergy += energyPerSecond;
         curHealth += healthPerSecond;
     }
     
