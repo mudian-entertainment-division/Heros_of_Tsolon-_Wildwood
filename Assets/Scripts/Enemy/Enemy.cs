@@ -1,57 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public int health;
-    public float speed = 10f;
-    private bool isHit;
-    bool damaged;
+    public int Health;
+    public bool Damage;
+    public Vector3 enemyPosition;
 
-    private Transform target;
-    private int wavepointIndex = 0;
+    public GameObject scoreText;
+    public int Score;
 
-    void Start()
+    public GameObject Coins;
+
+    // Update is called once per frame
+    private void Update()
     {
-        target = Waypoints.points[0];   
-    }
+        EnemyPos();
 
-    void Update()
-    {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        if (Health <= 0)
         {
-            GetNextWaypoint();
-        }
-
-        if (health <= 0)
-        {
+            Instantiate(Coins, enemyPosition, Quaternion.identity);
+            ScoreManager.hordeScore += 1;
             Destroy(gameObject);
         }
-        if (isHit)
-        {
-            damaged = true;
-            isHit = false;
-        }
-    }
 
-    void GetNextWaypoint()
-    {
-        if (wavepointIndex >= Waypoints.points.Length - 1)
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            Destroy(gameObject);
-            return;
+            Damage = true;
+            Health -= 55;
         }
-
-        wavepointIndex++;
-        target = Waypoints.points[wavepointIndex];
     }
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        isHit = true;
+        Health -= damage;
+    }
+    public void EnemyPos()
+    {
+        enemyPosition = transform.position;
     }
 }
