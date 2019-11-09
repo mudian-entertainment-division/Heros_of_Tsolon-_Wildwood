@@ -493,25 +493,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &244562391 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2859865446439682788, guid: 7aac48f3a60c62846bbe280584995aa4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2859865447143583503}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &244562392
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244562391}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &305057246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4090,9 +4071,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2859865446439682815, guid: 7aac48f3a60c62846bbe280584995aa4, type: 3}
-    - {fileID: 2859865446439682784, guid: 7aac48f3a60c62846bbe280584995aa4, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aac48f3a60c62846bbe280584995aa4, type: 3}
 --- !u!1001 &6410098951825057606
 PrefabInstance:
@@ -4337,8 +4316,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7300178562558574123, guid: c0eb81e7ae34da34182f72f3ddd4e5ad, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0eb81e7ae34da34182f72f3ddd4e5ad, type: 3}
 --- !u!1001 &7629232330129907254
 PrefabInstance:
@@ -4407,8 +4385,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7629232332217284985, guid: def993eefa6f8424eaa746c4d87cd61d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def993eefa6f8424eaa746c4d87cd61d, type: 3}
 --- !u!23 &8085856862849399328
 MeshRenderer:
