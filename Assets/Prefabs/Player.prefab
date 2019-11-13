@@ -62,7 +62,6 @@ GameObject:
   - component: {fileID: 6410098951050669513}
   - component: {fileID: 6410098951050669517}
   - component: {fileID: 3539278477120581687}
-  - component: {fileID: 3843601290063601293}
   - component: {fileID: 6410098951050669514}
   - component: {fileID: 6410098951050669519}
   - component: {fileID: 6410098951050669516}
@@ -167,23 +166,6 @@ MonoBehaviour:
   damageImage: {fileID: 0}
   flashSpeed: 5
   flashColor: {r: 1, g: 0, b: 0, a: 0.2}
---- !u!114 &3843601290063601293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6410098951050669518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c4c1e99d19937b49a3e746b8c4f5183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 150
-  detectionRadius: 10
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!114 &6410098951050669514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +224,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095168829755081555}
-  - component: {fileID: 1537750936558232429}
   - component: {fileID: 1931996025}
   m_Layer: 11
   m_Name: AttackPos
@@ -265,19 +246,6 @@ Transform:
   m_Father: {fileID: 6410098951050669527}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1537750936558232429
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8345314531290113919}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1931996025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 150
-  detectionRadius: 10
+  detectionRadius: 1.2
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
