@@ -7,6 +7,7 @@ TagManager:
   - RedTeam
   - BlueTeam
   - GreenTeam
+  - Enemy
   layers:
   - Default
   - TransparentFX

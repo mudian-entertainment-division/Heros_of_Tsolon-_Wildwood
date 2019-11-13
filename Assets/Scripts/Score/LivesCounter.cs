@@ -6,6 +6,9 @@ public class LivesCounter : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        ScoreManager.livesScore += 1;
+        if (other.CompareTag("Enemy"))
+        {
+            ScoreManager.livesScore += 1;
+        }
     }
 }

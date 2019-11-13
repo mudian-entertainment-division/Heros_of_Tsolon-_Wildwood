@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2859865446439682786}
   - component: {fileID: 2859865446439682787}
   - component: {fileID: 3505847573285518081}
+  - component: {fileID: 5900621656316586616}
   - component: {fileID: 1084001931772736423}
   m_Layer: 13
   m_Name: Red Team
@@ -29,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2859865446439682788}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.12760457, y: 0.45398176, z: 0.021733662, w: 0.88155854}
   m_LocalPosition: {x: -3.5093033, y: -1.2886413, z: -2.3916068}
   m_LocalScale: {x: 3.4990199, y: 2.2449698, z: 0.9}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -14.175, y: 55.064, z: -4.587}
 --- !u!65 &4154655085682137225
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -117,6 +118,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5900621656316586616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859865446439682788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8d0e9b4d5297846a4c1d0977ad3b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &1084001931772736423
 SpriteRenderer:
   m_ObjectHideFlags: 0
