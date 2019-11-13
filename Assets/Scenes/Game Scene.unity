@@ -1259,16 +1259,6 @@ PrefabInstance:
       propertyPath: Coins
       value: 
       objectReference: {fileID: 913440540}
-    - target: {fileID: 22904843865830709, guid: 53ed17abbe37b2943bfc1538bd212474,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8174967600414594599, guid: 53ed17abbe37b2943bfc1538bd212474,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ed17abbe37b2943bfc1538bd212474, type: 3}
 --- !u!1 &565877388
