@@ -569,7 +569,7 @@ PrefabInstance:
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.1
+      value: -24.370026
       objectReference: {fileID: 0}
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
@@ -1259,6 +1259,26 @@ PrefabInstance:
       propertyPath: Coins
       value: 
       objectReference: {fileID: 913440540}
+    - target: {fileID: 8174967600414594599, guid: 53ed17abbe37b2943bfc1538bd212474,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174967600414594599, guid: 53ed17abbe37b2943bfc1538bd212474,
+        type: 3}
+      propertyPath: lookRadius
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469860786517085455, guid: 53ed17abbe37b2943bfc1538bd212474,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469860786517085455, guid: 53ed17abbe37b2943bfc1538bd212474,
+        type: 3}
+      propertyPath: state
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ed17abbe37b2943bfc1538bd212474, type: 3}
 --- !u!1 &565877388
@@ -2236,7 +2256,7 @@ PrefabInstance:
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.5
+      value: -23.370026
       objectReference: {fileID: 0}
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
@@ -2597,7 +2617,7 @@ PrefabInstance:
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.47
+      value: 8.2
       objectReference: {fileID: 0}
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
@@ -3006,7 +3026,7 @@ PrefabInstance:
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.67
+      value: -24.2
       objectReference: {fileID: 0}
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
@@ -3081,6 +3101,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2859865446439682812, guid: 7aac48f3a60c62846bbe280584995aa4,
     type: 3}
   m_PrefabInstance: {fileID: 1686673496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1439332467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6410098951050669518, guid: 8b7fc41f4ef085d40b2255140b663960,
+    type: 3}
+  m_PrefabInstance: {fileID: 6410098951825057606}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1493289307
 GameObject:
@@ -3350,7 +3376,7 @@ PrefabInstance:
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.47
+      value: -23.400024
       objectReference: {fileID: 0}
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
@@ -3647,7 +3673,7 @@ PrefabInstance:
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9448475
+      value: -1.46
       objectReference: {fileID: 0}
     - target: {fileID: 7026176946154798060, guid: b2d23691f6309fc49b59fe3ff37772a9,
         type: 3}
@@ -3827,6 +3853,16 @@ PrefabInstance:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 816514140}
+    - target: {fileID: 3539278477120581687, guid: 8b7fc41f4ef085d40b2255140b663960,
+        type: 3}
+      propertyPath: flashSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912609208318561739, guid: 8b7fc41f4ef085d40b2255140b663960,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1439332467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
 --- !u!4 &7026176946154798060 stripped

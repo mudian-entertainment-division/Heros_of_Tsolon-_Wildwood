@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
 
     public GameObject Coins;
 
+    
+
     // Update is called once per frame
     private void Update()
     {
@@ -40,4 +42,6 @@ public class Enemy : MonoBehaviour
     {
         enemyPosition = transform.position;
     }
+
+  
 }

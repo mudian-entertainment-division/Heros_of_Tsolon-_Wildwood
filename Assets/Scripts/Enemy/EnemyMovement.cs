@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 10f;
 
     private Transform target;
-    private int wavepointIndex = 0;
-
+    private int waypointIndex = 10;
+    //Jed...Calling Nav Mesh
+    private NavMeshAgent agent;
+    //Jed...The detection Radius
+    public float lookRadius = 1f;
     void Start()
     {
         target = Waypoints.points[0];
@@ -16,24 +20,49 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        //Jed...Moves Enemy to Target
+        float distance = Vector3.Distance(target.position, transform.position);
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        //Jed...Calls the New Player Manager Script in order to Target the Player
+        target = PlayerManager.instance.player.transform;
+        //Jed...Calls the NavMeshAgent
+        agent = GetComponent<NavMeshAgent>();
+        //Jed...Checks if player is in the lookRadius
+
+        if (distance <= lookRadius)
         {
-            GetNextWaypoint();
+            //Jed...Moves Enemy to Target
+            agent.SetDestination(target.position);
         }
+        else if(distance > lookRadius)
+        {
+            Vector3 dir = target.position - transform.position;
+            transform.Translate(dir.normalized * speed * Time.deltaTime, Space.Self);
+
+            if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+            {
+                GetNextWaypoint();
+            }
+        }
+
+
     }
 
     void GetNextWaypoint()
     {
-        if (wavepointIndex >= Waypoints.points.Length - 1)
+        if (waypointIndex >= Waypoints.points.Length - 1)
         {
             Destroy(gameObject);
             return;
         }
 
-        wavepointIndex++;
-        target = Waypoints.points[wavepointIndex];
+        waypointIndex++;
+        target = Waypoints.points[waypointIndex];
+    }
+    //Jed...The Detection Radius visualised
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 }

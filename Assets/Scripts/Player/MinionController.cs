@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(PlayerMotor))]
 public class MinionController : MonoBehaviour
@@ -10,6 +11,12 @@ public class MinionController : MonoBehaviour
     Camera cam;
     PlayerMotor motor;
 
+    private Transform target;
+
+    //Jed...Calling Nav Mesh
+    private NavMeshAgent agent;
+    //Jed...The detection Radius
+    public float lookRadius = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +39,20 @@ public class MinionController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             MoveMinion("GreenTeam");
+        }
+        //Jed...Moves Enemy to Target
+        float distance = Vector3.Distance(target.position, transform.position);
+
+        //Jed...Calls the New Player Manager Script in order to Target the Player
+        target = EnemyManager.instance.enemy.transform;
+        //Jed...Calls the NavMeshAgent
+        agent = GetComponent<NavMeshAgent>();
+        //Jed...Checks if player is in the lookRadius
+
+        if (distance <= lookRadius)
+        {
+            //Jed...Moves Enemy to Target
+            agent.SetDestination(target.position);
         }
     }
     public void MoveMinion(string tag)
