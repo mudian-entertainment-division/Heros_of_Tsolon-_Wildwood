@@ -113,9 +113,10 @@ MonoBehaviour:
   Health: 210
   Damage: 0
   enemyPosition: {x: 0, y: 0, z: 0}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 539250180969836627, guid: 50755272d818c024ab3432d53e381561,
+    type: 3}
   Score: 0
-  Coins: {fileID: 0}
+  Coins: {fileID: 8651635517355854934, guid: 8befd1ef411b84e40a6fc5fe04eda714, type: 3}
 --- !u!114 &3366575298375945582
 MonoBehaviour:
   m_ObjectHideFlags: 0

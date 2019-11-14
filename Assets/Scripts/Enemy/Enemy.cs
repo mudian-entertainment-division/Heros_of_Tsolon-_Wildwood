@@ -23,7 +23,12 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(Coins, enemyPosition, Quaternion.identity);
             ScoreManager.hordeScore += 1;
+
+            WaveSpawner.enemiesAlive--;
+
             Destroy(gameObject);
+
+
         }
 
         if (Input.GetKeyDown(KeyCode.S))
