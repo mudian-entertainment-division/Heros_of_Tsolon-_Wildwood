@@ -12,6 +12,11 @@ public class Tower : MonoBehaviour
         
     }
 
+    void UpdateTarget()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
