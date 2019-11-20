@@ -8,6 +8,7 @@ TagManager:
   - BlueTeam
   - GreenTeam
   - Enemy
+  - Building
   layers:
   - Default
   - TransparentFX
