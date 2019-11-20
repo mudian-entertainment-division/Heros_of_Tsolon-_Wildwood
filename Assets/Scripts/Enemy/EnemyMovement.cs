@@ -5,13 +5,17 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 10f;
+    public Waypoints path;
 
     private Transform target;
     private int waypointIndex = 0;
 
     void Start()
     {
-        target = Waypoints.points[0];
+        // Get Random Path
+        path = WaypointManager.Instance.GetRandomPath();
+        // Get First Point of Path
+        target = path.GetFirstPoint();
     }
 
     void Update()
@@ -27,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
 
     void GetNextWaypoint()
     {
-        if (waypointIndex >= Waypoints.points.Length - 1)
+        if (waypointIndex >= path.points.Length - 1)
         {
             WaveSpawner.enemiesAlive--;
             Destroy(gameObject);
@@ -35,6 +39,6 @@ public class EnemyMovement : MonoBehaviour
         }
 
         waypointIndex++;
-        target = Waypoints.points[waypointIndex];
+        target = path.points[waypointIndex];
     }
 }
