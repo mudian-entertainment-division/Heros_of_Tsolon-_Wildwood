@@ -7,11 +7,13 @@ public class CollectCoins : MonoBehaviour
 {
     public LayerMask Coins;
 
+    public int Wallet = 0;
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            ScoreManager.coinScore += 1;
+            ScoreManager.coinScore += Wallet + 1;
             Destroy(gameObject);
         }
     }

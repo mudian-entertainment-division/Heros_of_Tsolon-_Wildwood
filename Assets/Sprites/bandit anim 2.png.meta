@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 8e3ff3e27ca4bc54dda56e89e0550dfa
+guid: debcdadaa961179459741763ffdf4e6f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: fire4_0
+    21300000: bandit anim 2_0
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -14,12 +14,12 @@ TextureImporter:
     borderMipMap: 0
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.5
-    mipMapFadeDistanceStart: 2
+    mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: 0.1
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   streamingMipmaps: 0
@@ -28,16 +28,16 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 256
+  textureFormat: 1
+  maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
-    aniso: 1
-    mipBias: 0
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -61,7 +61,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -72,7 +72,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -85,21 +85,21 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fire4_0
+      name: bandit anim 2_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 29
-        width: 61
-        height: 65
+        x: 0
+        y: 0
+        width: 384
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 699b578e37e663b49b7d9d76e45e1c69
+      spriteID: 17a05f06209a2c44fbfd12d936277551
       vertices: []
       indices: 
       edges: []
@@ -107,14 +107,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ea471dd191dd45a46a5ca59de128aaef
+    spriteID: 6d5b42c7bd3673d48a7709ba8bb009ee
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

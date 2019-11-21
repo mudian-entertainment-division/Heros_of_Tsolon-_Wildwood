@@ -283,8 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5355839954608621932}
-  - component: {fileID: 5355839954608621935}
-  - component: {fileID: 3661846493203185489}
+  - component: {fileID: 145482633}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Building
@@ -308,7 +307,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5355839954608621935
+--- !u!114 &145482633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,32 +316,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5355839954608621934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c34dcb8231fba47a122fb8cd682ac9, type: 3}
+  m_Script: {fileID: 11500000, guid: aa700db0e360dc94fb180d0e08d568c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
-  fireRate: 1
+  target: {fileID: 5172660791894729053, guid: 53ed17abbe37b2943bfc1538bd212474, type: 3}
   enemyTag: Enemy
+  fireRate: 100
+  range: 20
   partToRotate: {fileID: 5355839954726534791}
   turnSpeed: 8
-  bulletPrefab: {fileID: 3811075295336080521, guid: 8e27e5dc3261e8646a45b01b5ac9b284,
+  bulletPrefab: {fileID: 1836033268025594679, guid: 80848ff41b3f5e8468e33158538c570e,
     type: 3}
   firePoint: {fileID: 5355839953425248945}
---- !u!114 &3661846493203185489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5355839954608621934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09f84db7a0f2b1743a7136fdaadbd814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textElement: {fileID: 0}
-  Tower: {fileID: 0}
-  canonTower: {fileID: 0}
 --- !u!1 &5355839954726534790
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,8 +27,6 @@ public class Enemy : MonoBehaviour
             WaveSpawner.enemiesAlive--;
 
             Destroy(gameObject);
-
-
         }
 
         if (Input.GetKeyDown(KeyCode.S))

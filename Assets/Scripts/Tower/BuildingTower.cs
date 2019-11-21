@@ -5,29 +5,47 @@ using UnityEngine.UI;
 
 public class BuildingTower : MonoBehaviour
 {
-    public Text textElement;
-    public GameObject Tower;
+    public Text flameText;
+    public Text sawText;
+    public GameObject Flame;
+    public GameObject Saw;
 
-    public bool allowBuild = true;
+    public bool allowBuild = false;
 
     private void Awake()
     {
-        textElement.gameObject.SetActive(false);
-        Tower.gameObject.SetActive(false);
+        flameText.gameObject.SetActive(false);
+        sawText.gameObject.SetActive(false);
+        Flame.gameObject.SetActive(false);
+        Saw.gameObject.SetActive(false);
     }
     void OnTriggerEnter(Collider buildingTrigger)
     {
-        if (buildingTrigger.tag == "Building")
+        if (ScoreManager.coinScore <= 2)
         {
-            textElement.gameObject.SetActive(true);
+            allowBuild = true;
+            if (buildingTrigger.tag == "Building")
+            {
+                if (allowBuild)
+                {
+                    flameText.gameObject.SetActive(true);
+                    sawText.gameObject.SetActive(true);
+                }
+            }
         }
+
     }
 
     private void OnTriggerExit(Collider buildingTrigger)
     {
         if (buildingTrigger.tag == "Building")
         {
-            textElement.gameObject.SetActive(false);
+            if (allowBuild)
+            {
+                flameText.gameObject.SetActive(false);
+                sawText.gameObject.SetActive(false);
+                allowBuild = false;
+            }
         }
     }
 
@@ -35,7 +53,7 @@ public class BuildingTower : MonoBehaviour
     void Update()
     {
         // Text element will only be active when you are inside of a building trigger
-        if (textElement.gameObject.activeSelf)
+        if (flameText.gameObject.activeSelf)
         {
             // If I press E
             if (Input.GetKeyDown(KeyCode.E))
@@ -43,12 +61,28 @@ public class BuildingTower : MonoBehaviour
                 if (allowBuild)
                 {
                     // Disable text element
-                    textElement.gameObject.SetActive(false);
+                    flameText.gameObject.SetActive(false);
                     // Enable Tower
-                    Tower.gameObject.SetActive(true);
+                    Flame.gameObject.SetActive(true);
 
                     allowBuild = false;
                 }       
+            }
+        }
+        if (sawText.gameObject.activeSelf)
+        {
+            // If I press E
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (allowBuild)
+                {
+                    // Disable text element
+                    sawText.gameObject.SetActive(false);
+                    // Enable Tower
+                    Saw.gameObject.SetActive(true);
+
+                    allowBuild = false;
+                }
             }
         }
     }
