@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
+        // Adds a one counter to all the game texts
         coinText.GetComponent<Text>().text = "" + coinScore;
 
         hordeText.GetComponent<Text>().text = "" + hordeScore;

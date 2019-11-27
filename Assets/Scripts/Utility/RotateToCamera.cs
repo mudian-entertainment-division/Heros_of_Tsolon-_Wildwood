@@ -10,10 +10,13 @@ public class RotateToCamera : MonoBehaviour
 
     private void Awake()
     {
+        // Gets the Main camera component
         cam = Camera.main;
+        // Gets the NazMesh component
         agent = GetComponent<NavMeshAgent>();
         if (agent)
         {
+            // Gets rid of its starting rotaion
             agent.updateRotation = false;
         }
     }
@@ -21,6 +24,7 @@ public class RotateToCamera : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
+        // Transform of the object always looks at the camera
         transform.LookAt(cam.transform);
     }
 }

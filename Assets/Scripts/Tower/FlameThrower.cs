@@ -16,18 +16,22 @@ public class FlameThrower : Tower
 
     void Start()
     {
+        // Uses the UpdateTarget function repeatively
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     void UpdateTarget()
     {
+        // enemeies finds enemyTag
         GameObject[] enemeies = GameObject.FindGameObjectsWithTag(enemyTag);
 
+        // Finds the closest enemy
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
         foreach (GameObject enemy in enemeies)
         {
+            // Uses the range of the object to find and rotate to the enemy
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
             {
@@ -36,6 +40,7 @@ public class FlameThrower : Tower
             }
         }
         
+        // Finds and targets the nearest enemy transform
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
@@ -66,17 +71,21 @@ public class FlameThrower : Tower
             fireCountdown = 1f / fireRate;
         }
 
+        // Makes fireCountdown uses ingame seconds
         fireCountdown -= Time.deltaTime;
 
     }
 
     void Shoot()
     {
+        // Clones the bullet prefab at a certain point
         GameObject bulletGO = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        // Gets the BulletGO component
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
         {
+            // Bullet targets target
             bullet.Seek(target);
         }
     }

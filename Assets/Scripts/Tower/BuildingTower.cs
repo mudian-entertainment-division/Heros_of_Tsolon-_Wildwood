@@ -14,20 +14,26 @@ public class BuildingTower : MonoBehaviour
 
     private void Awake()
     {
+        // All of these objects are set to off
         flameText.gameObject.SetActive(false);
         sawText.gameObject.SetActive(false);
         Flame.gameObject.SetActive(false);
         Saw.gameObject.SetActive(false);
     }
+
+    // When you enter into the zone...
     void OnTriggerEnter(Collider buildingTrigger)
     {
+        // Can build the tower if you have at least a score of 2
         if (ScoreManager.coinScore <= 2)
         {
             allowBuild = true;
+            // finds tag of building
             if (buildingTrigger.tag == "Building")
             {
                 if (allowBuild)
                 {
+                    // All of these objects are set to on
                     flameText.gameObject.SetActive(true);
                     sawText.gameObject.SetActive(true);
                 }
@@ -36,12 +42,15 @@ public class BuildingTower : MonoBehaviour
 
     }
 
+    // When you exit into the zone...
     private void OnTriggerExit(Collider buildingTrigger)
     {
+        // finds tag of building
         if (buildingTrigger.tag == "Building")
         {
             if (allowBuild)
             {
+                // All of these objects are set to off
                 flameText.gameObject.SetActive(false);
                 sawText.gameObject.SetActive(false);
                 allowBuild = false;

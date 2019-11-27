@@ -11,21 +11,25 @@ public class Bullet : MonoBehaviour
     public int damage = 150;
     public void Seek(Transform _target)
     {
+        // Bullet finds the targets position
         target = _target;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // if there is no target.. nothing happens
         if (target == null)
         {
             Destroy(gameObject);
             return;
         }
 
+        // Gets the excat position for the bullet toc spawn
         Vector3 dir = target.position - transform.position;
+        // Measures the speed for the bullet to travel
         float distanceThisFrame = speed * Time.deltaTime;
-
+        
         if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
@@ -37,9 +41,11 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
+        // Gets the Enemy component
         Enemy enemy = target.GetComponent<Enemy>();
         if (enemy)
         {
+            // Enmey takes damage from the enemy script
             enemy.TakeDamage(damage);
         }
 

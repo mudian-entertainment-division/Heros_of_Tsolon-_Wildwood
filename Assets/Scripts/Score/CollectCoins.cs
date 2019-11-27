@@ -13,6 +13,7 @@ public class CollectCoins : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // If coin is collected.. Adds 1 to the coin text and destroys the object
             ScoreManager.coinScore += Wallet + 1;
             Destroy(gameObject);
         }

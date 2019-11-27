@@ -16,9 +16,11 @@ public class Saw : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            // Gets the Enemy component
             Enemy enemy = other.GetComponent<Enemy>();
            if (enemy)
            {
+                // Enmey takes damage from the enemy script
                 enemy.TakeDamage(damage);
            }
         }

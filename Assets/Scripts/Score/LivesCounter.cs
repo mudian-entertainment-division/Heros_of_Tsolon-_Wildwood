@@ -6,8 +6,10 @@ public class LivesCounter : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
+        // When the enmey gets the the end
         if (other.CompareTag("Enemy"))
         {
+            // Life counter will increase
             ScoreManager.livesScore += 1;
         }
     }
