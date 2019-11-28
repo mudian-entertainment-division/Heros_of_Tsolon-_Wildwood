@@ -28484,6 +28484,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -58.8
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 6153422436442502631, guid: a38da9b3731c9a841b507ee064f49b89,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -28515,6 +28516,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6153422436442502631, guid: a38da9b3731c9a841b507ee064f49b89,
+=======
+    - target: {fileID: 1512238574302230348, guid: f6c799a8f30f3734ab1539b65b5cbf1d,
+>>>>>>> 37997233c577caeb7e569a92675bb7067e80ae28
         type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -28716,6 +28720,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 979867795308765561, guid: f6c799a8f30f3734ab1539b65b5cbf1d,
+        type: 3}
+      propertyPath: m_Text
+      value: Press E to Build Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 979867795308765561, guid: f6c799a8f30f3734ab1539b65b5cbf1d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 979867795308765561, guid: f6c799a8f30f3734ab1539b65b5cbf1d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 979867795308765561, guid: f6c799a8f30f3734ab1539b65b5cbf1d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 848780cd5b5bcfb429e351c4d9e04d91, type: 3}
@@ -29521,11 +29545,6 @@ PrefabInstance:
     - target: {fileID: 422875545394347496, guid: 1c5a1f23dd4930848b2a04bb76d94d57,
         type: 3}
       propertyPath: m_Name
-      value: Saw
-      objectReference: {fileID: 0}
-    - target: {fileID: 422875545394347496, guid: 1c5a1f23dd4930848b2a04bb76d94d57,
-        type: 3}
-      propertyPath: m_TagString
       value: Saw
       objectReference: {fileID: 0}
     - target: {fileID: 422875545394347502, guid: 1c5a1f23dd4930848b2a04bb76d94d57,
@@ -30931,6 +30950,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7300178562558574127, guid: c0eb81e7ae34da34182f72f3ddd4e5ad,
         type: 3}
+    - target: {fileID: 3539278477120581687, guid: 8b7fc41f4ef085d40b2255140b663960,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 534669904}
+    - target: {fileID: 3539278477120581687, guid: 8b7fc41f4ef085d40b2255140b663960,
+        type: 3}
+      propertyPath: movementMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
+      propertyPath: BuildingObjectIndex.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
+      propertyPath: BuildingPrices.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
+      propertyPath: buildingObjectIndex.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
       propertyPath: textElement
       value: 
@@ -30963,6 +31004,30 @@ PrefabInstance:
       propertyPath: vomitText
       value: 
       objectReference: {fileID: 230309758}
+    - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
+      propertyPath: BuildingPrices.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
+      propertyPath: BuildingPrices.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
+      propertyPath: BuildingObjectIndex.Array.data[0]
+      value: 
+      objectReference: {fileID: 261511802}
+    - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
+      propertyPath: BuildingObjectIndex.Array.data[1]
+      value: 
+      objectReference: {fileID: 1654496794}
+    - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
+      propertyPath: buildingObjectIndex.Array.data[0]
+      value: 
+      objectReference: {fileID: 261511802}
+    - target: {fileID: 1913880428, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
+      propertyPath: buildingObjectIndex.Array.data[1]
+      value: 
+      objectReference: {fileID: 1654496794}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b7fc41f4ef085d40b2255140b663960, type: 3}
 --- !u!4 &7026176946154798060 stripped
