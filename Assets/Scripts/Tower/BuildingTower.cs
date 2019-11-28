@@ -5,55 +5,73 @@ using UnityEngine.UI;
 
 public class BuildingTower : MonoBehaviour
 {
-    public Text flameText;
+    public Text vomitText;
     public Text sawText;
-    public GameObject Flame;
+    public GameObject Vomit;
     public GameObject Saw;
 
-    public bool allowBuild = false;
+    public bool allowSawBuild = true;
+    public bool allowVomitBuild = true;
 
     private void Awake()
     {
         // All of these objects are set to off
-        flameText.gameObject.SetActive(false);
+        vomitText.gameObject.SetActive(false);
         sawText.gameObject.SetActive(false);
-        Flame.gameObject.SetActive(false);
+        Vomit.gameObject.SetActive(false);
         Saw.gameObject.SetActive(false);
     }
 
     // When you enter into the zone...
     void OnTriggerEnter(Collider buildingTrigger)
     {
-        // Can build the tower if you have at least a score of 2
-        if (ScoreManager.coinScore <= 2)
-        {
-            allowBuild = true;
             // finds tag of building
-            if (buildingTrigger.tag == "Building")
+            if (buildingTrigger.tag == "Vomit")
             {
-                if (allowBuild)
+                allowVomitBuild = true;
+
+                if (allowVomitBuild)
                 {
                     // All of these objects are set to on
-                    flameText.gameObject.SetActive(true);
+                    vomitText.gameObject.SetActive(true);
+                }
+            }
+
+            // finds tag of building
+            if (buildingTrigger.tag == "Saw")
+            {
+                allowSawBuild = true;
+
+                if (allowSawBuild)
+                {
+                    // All of these objects are set to on
                     sawText.gameObject.SetActive(true);
                 }
             }
-        }
-
     }
+
 
     // When you exit into the zone...
     private void OnTriggerExit(Collider buildingTrigger)
     {
         // finds tag of building
-        if (buildingTrigger.tag == "Building")
+        if (buildingTrigger.tag == "Vomit")
         {
-            if (allowBuild)
+            if (allowVomitBuild)
             {
                 // All of these objects are set to off
-                flameText.gameObject.SetActive(false);
+                vomitText.gameObject.SetActive(false);
+                allowVomitBuild = false;
+            }
+        }
+        // finds tag of building
+        if (buildingTrigger.tag == "Saw")
+        {
+            if (allowSawBuild)
+            {
+                // All of these objects are set to off
                 sawText.gameObject.SetActive(false);
-                allowBuild = false;
+                allowSawBuild = false;
             }
         }
     }
@@ -62,35 +80,35 @@ public class BuildingTower : MonoBehaviour
     void Update()
     {
         // Text element will only be active when you are inside of a building trigger
-        if (flameText.gameObject.activeSelf)
+        if (vomitText.gameObject.activeSelf)
         {
             // If I press E
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (allowBuild)
+                if (allowVomitBuild)
                 {
                     // Disable text element
-                    flameText.gameObject.SetActive(false);
+                    vomitText.gameObject.SetActive(false);
                     // Enable Tower
-                    Flame.gameObject.SetActive(true);
+                    Vomit.gameObject.SetActive(true);
 
-                    allowBuild = false;
+                    allowVomitBuild = false;
                 }       
             }
         }
         if (sawText.gameObject.activeSelf)
         {
             // If I press E
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                if (allowBuild)
+                if (allowSawBuild)
                 {
                     // Disable text element
                     sawText.gameObject.SetActive(false);
                     // Enable Tower
                     Saw.gameObject.SetActive(true);
 
-                    allowBuild = false;
+                    allowSawBuild = false;
                 }
             }
         }

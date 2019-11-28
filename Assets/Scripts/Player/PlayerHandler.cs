@@ -22,11 +22,21 @@ public class PlayerHandler : MonoBehaviour
     public Color flashColor = new Color(1, 1, 0, 0.2f);
     bool damaged;
 
+    [Header("Spawning Minions")]
+
+    public GameObject zombie;
+    public GameObject Skele;
+    public GameObject ghost;
+
+    public Camera cam;
+
+    public Vector3 playerPosition;
+
     private void Start()
     {
         InvokeRepeating("Timer", 1, 1f);
     }
-    void Update()
+    public void Update()
     {
         HealthChange();
 
@@ -58,6 +68,30 @@ public class PlayerHandler : MonoBehaviour
         {
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
+
+        // PlayerPos();
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Instantiate(Skele, playerPosition, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Instantiate(ghost, playerPosition, Quaternion.identity);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z) && (Input.GetKeyDown(KeyCode.Mouse0)))
+        {
+            //Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrSteroscopicEye.Mono);
+        }
+    }
+    /*public void PlayerPos()
+    {
+        playerPosition = transform.position;
+    }*/
+    public void Spawner(Vector3 position)
+    {
+        Instantiate(zombie).transform.position = position;
     }
     private void Timer()
     {

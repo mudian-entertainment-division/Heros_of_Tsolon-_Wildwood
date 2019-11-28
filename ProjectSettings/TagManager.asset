@@ -9,6 +9,8 @@ TagManager:
   - GreenTeam
   - Enemy
   - Building
+  - Saw
+  - Vomit
   layers:
   - Default
   - TransparentFX
