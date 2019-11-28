@@ -34,9 +34,19 @@ public class PlayerHandler : MonoBehaviour
 
     public Vector3 playerPosition;
 
+    [Header("Minions")]
+    public GameObject[] minionObjectIndex;
+
+    [Header("Cost Amount")]
+    public int[] MinionPrices;
+
     private void Start()
     {
         InvokeRepeating("Timer", 1, 1f);
+    }
+    public void MinionObjectIndex(int indexRef)
+    {
+        ScoreManager.hordeScore -= MinionPrices[indexRef];
     }
     public void Update()
     {
@@ -73,50 +83,59 @@ public class PlayerHandler : MonoBehaviour
 
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 
-        if (Input.GetKey(KeyCode.Z) && (Input.GetMouseButtonDown(1)))
+        for (int i = 0; i < MinionPrices.Length; i++)
         {
-            Vector3 wordPos;
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000f))
+            if (ScoreManager.hordeScore >= MinionPrices[i])
             {
-                wordPos = hit.point;
+                if (Input.GetKeyDown(KeyCode.Z) && (Input.GetMouseButton(1)))
+                {
+                    Vector3 wordPos;
+                    Ray ray = Camera.main.ScreenPointToRay(mousePos);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 1000f))
+                    {
+                        wordPos = hit.point;
+                    }
+                    else
+                    {
+                        wordPos = Camera.main.ScreenToWorldPoint(mousePos);
+                    }
+                    Instantiate(zombie, wordPos, Quaternion.identity);
+                    MinionObjectIndex(i);
+                }
+                if (Input.GetKeyDown(KeyCode.X) && (Input.GetMouseButton(1)))
+                {
+                    Vector3 wordPos;
+                    Ray ray = Camera.main.ScreenPointToRay(mousePos);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 1000f))
+                    {
+                        wordPos = hit.point;
+                    }
+                    else
+                    {
+                        wordPos = Camera.main.ScreenToWorldPoint(mousePos);
+                    }
+                    Instantiate(Skele, wordPos, Quaternion.identity);
+                    MinionObjectIndex(i);
+                }
+                if (Input.GetKeyDown(KeyCode.C) && (Input.GetMouseButton(1)))
+                {
+                    Vector3 wordPos;
+                    Ray ray = Camera.main.ScreenPointToRay(mousePos);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 1000f))
+                    {
+                        wordPos = hit.point;
+                    }
+                    else
+                    {
+                        wordPos = Camera.main.ScreenToWorldPoint(mousePos);
+                    }
+                    Instantiate(ghost, wordPos, Quaternion.identity);
+                    MinionObjectIndex(i);
+                }
             }
-            else
-            {
-                wordPos = Camera.main.ScreenToWorldPoint(mousePos);
-            }
-            Instantiate(zombie, wordPos, Quaternion.identity);
-        }
-        if (Input.GetKey(KeyCode.X) && (Input.GetMouseButtonDown(1)))
-        {
-            Vector3 wordPos;
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000f))
-            {
-                wordPos = hit.point;
-            }
-            else
-            {
-                wordPos = Camera.main.ScreenToWorldPoint(mousePos);
-            }
-            Instantiate(Skele, wordPos, Quaternion.identity);
-        }
-        if (Input.GetKey(KeyCode.C) && (Input.GetMouseButtonDown(1)))
-        {
-            Vector3 wordPos;
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000f))
-            {
-                wordPos = hit.point;
-            }
-            else
-            {
-                wordPos = Camera.main.ScreenToWorldPoint(mousePos);
-            }
-            Instantiate(ghost, wordPos, Quaternion.identity);
         }
     }
     private void Timer()
