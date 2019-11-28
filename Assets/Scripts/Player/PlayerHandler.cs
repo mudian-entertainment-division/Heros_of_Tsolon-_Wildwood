@@ -30,6 +30,8 @@ public class PlayerHandler : MonoBehaviour
 
     public Camera cam;
 
+    public LayerMask movementMask;
+
     public Vector3 playerPosition;
 
     private void Start()
@@ -69,34 +71,57 @@ public class PlayerHandler : MonoBehaviour
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
 
-        // PlayerPos();
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKey(KeyCode.Z) && (Input.GetMouseButtonDown(1)))
         {
-            Instantiate(Skele, playerPosition, Quaternion.identity);
+            Vector3 wordPos;
+            Ray ray = Camera.main.ScreenPointToRay(mousePos);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 1000f))
+            {
+                wordPos = hit.point;
+            }
+            else
+            {
+                wordPos = Camera.main.ScreenToWorldPoint(mousePos);
+            }
+            Instantiate(zombie, wordPos, Quaternion.identity);
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKey(KeyCode.X) && (Input.GetMouseButtonDown(1)))
         {
-            Instantiate(ghost, playerPosition, Quaternion.identity);
+            Vector3 wordPos;
+            Ray ray = Camera.main.ScreenPointToRay(mousePos);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 1000f))
+            {
+                wordPos = hit.point;
+            }
+            else
+            {
+                wordPos = Camera.main.ScreenToWorldPoint(mousePos);
+            }
+            Instantiate(Skele, wordPos, Quaternion.identity);
         }
-
-        if (Input.GetKeyDown(KeyCode.Z) && (Input.GetKeyDown(KeyCode.Mouse0)))
+        if (Input.GetKey(KeyCode.C) && (Input.GetMouseButtonDown(1)))
         {
-            //Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrSteroscopicEye.Mono);
+            Vector3 wordPos;
+            Ray ray = Camera.main.ScreenPointToRay(mousePos);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 1000f))
+            {
+                wordPos = hit.point;
+            }
+            else
+            {
+                wordPos = Camera.main.ScreenToWorldPoint(mousePos);
+            }
+            Instantiate(ghost, wordPos, Quaternion.identity);
         }
-    }
-    /*public void PlayerPos()
-    {
-        playerPosition = transform.position;
-    }*/
-    public void Spawner(Vector3 position)
-    {
-        Instantiate(zombie).transform.position = position;
     }
     private void Timer()
     {
         curHealth += healthPerSecond;
     }
-    
 }
 
