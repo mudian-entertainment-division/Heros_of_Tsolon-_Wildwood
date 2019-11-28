@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager Instance;
+
     public GameObject coinText;
     public GameObject hordeText;
     public GameObject livesText;
@@ -13,6 +15,10 @@ public class ScoreManager : MonoBehaviour
     public static int hordeScore;
     public static int livesScore;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Update()
     {
