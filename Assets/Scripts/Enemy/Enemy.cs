@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(Coins, enemyPosition, Quaternion.identity);
             ScoreManager.hordeScore += 1;
+            ScoreManager.playerScore += 1;
 
             WaveSpawner.enemiesAlive--;
 

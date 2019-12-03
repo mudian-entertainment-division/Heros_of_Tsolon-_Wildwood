@@ -10,10 +10,13 @@ public class ScoreManager : MonoBehaviour
     public GameObject coinText;
     public GameObject hordeText;
     public GameObject livesText;
+    public GameObject scoreText;
+    public GameObject enemiesLeftText;
 
     public static int coinScore;
     public static int hordeScore;
     public static int livesScore;
+    public static int playerScore;
 
     private void Awake()
     {
@@ -28,5 +31,9 @@ public class ScoreManager : MonoBehaviour
         hordeText.GetComponent<Text>().text = "" + hordeScore;
 
         livesText.GetComponent<Text>().text = "Lives: " + livesScore;
+
+        scoreText.GetComponent<Text>().text = "Score: " + playerScore;
+
+        enemiesLeftText.GetComponent<Text>().text = "Enemies Remaining: " + WaveSpawner.enemiesAlive;
     }
 }
