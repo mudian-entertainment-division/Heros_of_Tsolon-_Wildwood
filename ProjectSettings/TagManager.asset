@@ -11,6 +11,7 @@ TagManager:
   - Building
   - Saw
   - Vomit
+  - Pausemenu
   layers:
   - Default
   - TransparentFX

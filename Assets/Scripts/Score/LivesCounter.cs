@@ -10,7 +10,7 @@ public class LivesCounter : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             // Life counter will increase
-            ScoreManager.livesScore += 1;
+            ScoreManager.Instance.AddScore(1, ScoreType.Lives);
         }
     }
 }

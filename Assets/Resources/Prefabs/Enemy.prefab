@@ -116,8 +116,8 @@ MonoBehaviour:
   enemyPosition: {x: 0, y: 0, z: 0}
   scoreText: {fileID: 539250180969836627, guid: 50755272d818c024ab3432d53e381561,
     type: 3}
-  Score: 0
   Coins: {fileID: 8651635517355854934, guid: 8befd1ef411b84e40a6fc5fe04eda714, type: 3}
+  score: {fileID: 6836513133917384969, guid: 3c645d090ceca4d40a75a9e2a89d72d3, type: 3}
 --- !u!114 &3366575298375945582
 MonoBehaviour:
   m_ObjectHideFlags: 0

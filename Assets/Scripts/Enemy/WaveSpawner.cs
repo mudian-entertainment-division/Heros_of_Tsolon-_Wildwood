@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
+    #region Singleton
+    public static WaveSpawner Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+    #endregion
+
     public GameObject enemyPrefab;
 
     public Transform spawnPoint;
@@ -11,7 +19,18 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
 
-    public static int enemiesAlive = 0;
+    private int enemiesAlive = 0;
+    public int EnemiesAlive
+    {
+        get
+        {
+            return enemiesAlive;
+        }
+        set
+        {
+            enemiesAlive = value;
+        }
+    }
 
     private int waveNum = 0;
 

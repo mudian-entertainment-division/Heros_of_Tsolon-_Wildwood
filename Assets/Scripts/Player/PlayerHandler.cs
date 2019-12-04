@@ -4,16 +4,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using System.Xml.Serialization;
+using System.Xml;
+
+[System.Serializable]
+public class PlayerData
+{
+    [XmlAttribute("Player Variables")]
+    public float curHealth;
+    public float curMana;
+    [XmlElement("Position")]
+    public Vector3 position;
+}
+
 public class PlayerHandler : MonoBehaviour
 {
     [Header("Value Variables")]
 
     public float curHealth, maxHealth;
+    public float curMana, maxMana;
     public float healthPerSecond = 1f;
+    public float ManaPerSecond = 1f;
 
     [Header("Value Variables")]
 
     public Image radialHealthIcon;
+    public Image radialManaIcon;
 
     [Header("Damage Effect Variables")]
 
@@ -39,6 +55,7 @@ public class PlayerHandler : MonoBehaviour
 
     [Header("Cost Amount")]
     public int[] MinionPrices;
+    public ScoreManager score;
 
     private void Start()
     {
@@ -46,11 +63,12 @@ public class PlayerHandler : MonoBehaviour
     }
     public void MinionObjectIndex(int indexRef)
     {
-        ScoreManager.hordeScore -= MinionPrices[indexRef];
+        score.RemoveScore(MinionPrices[indexRef], ScoreType.Horde);
     }
     public void Update()
     {
         HealthChange();
+        ManaChange();
 
         void HealthChange()
         {
@@ -61,11 +79,30 @@ public class PlayerHandler : MonoBehaviour
             {
                 curHealth = 245;
             }
-            if (curHealth > 245)
+            if (curHealth < 0)
             {
-                curHealth = 245;
+                curHealth = 0;
             }
         }
+        void ManaChange()
+        {
+            float amount = Mathf.Clamp01(curMana / maxMana);
+            radialManaIcon.fillAmount = amount;
+
+            if (curMana > 10)
+            {
+                curMana = 10;
+            }
+            if (curMana < 0)
+            {
+                curMana = 0;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            curMana -= 1;
+        }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             damaged = true;
@@ -81,11 +118,12 @@ public class PlayerHandler : MonoBehaviour
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
 
+
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 
         for (int i = 0; i < MinionPrices.Length; i++)
         {
-            if (ScoreManager.hordeScore >= MinionPrices[i])
+            if (score.GetScore(ScoreType.Horde) >= MinionPrices[i])
             {
                 if (Input.GetKeyDown(KeyCode.Z) && (Input.GetMouseButton(1)))
                 {
@@ -141,6 +179,7 @@ public class PlayerHandler : MonoBehaviour
     private void Timer()
     {
         curHealth += healthPerSecond;
+        curMana += ManaPerSecond;
     }
 }
 

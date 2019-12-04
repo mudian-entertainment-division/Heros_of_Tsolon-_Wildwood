@@ -19,6 +19,8 @@ public class BuildingTower : MonoBehaviour
     [Header("Cost Amount")]
     public int[] BuildingPrices;
 
+    public ScoreManager score;
+
     private void Awake()
     {
         // All of these objects are set to off
@@ -27,16 +29,21 @@ public class BuildingTower : MonoBehaviour
         Vomit.gameObject.SetActive(false);
         Saw.gameObject.SetActive(false);
     }
+    private void Start()
+    {
+        score = ScoreManager.Instance;
+    }
+
     public void BuildingObjectIndex(int indexRef)
     {
-        ScoreManager.coinScore -= BuildingPrices[indexRef];
+        score.RemoveScore(BuildingPrices[indexRef], ScoreType.Coin);
     }
     // When you enter into the zone...
     void OnTriggerEnter(Collider buildingTrigger)
     {
         for (int i = 0; i < BuildingPrices.Length; i++)
         {
-            if (ScoreManager.coinScore >= BuildingPrices[i])
+            if (score.GetScore(ScoreType.Coin) >= BuildingPrices[i])
             {
                 // finds tag of building
                 if (buildingTrigger.tag == "Vomit")
@@ -79,7 +86,7 @@ public class BuildingTower : MonoBehaviour
     {
         for (int i = 0; i < BuildingPrices.Length; i++)
         {
-            if (ScoreManager.coinScore >= BuildingPrices[i])
+            if (score.GetScore(ScoreType.Coin) >= BuildingPrices[i])
             {
                 // finds tag of building
                 if (buildingTrigger.tag == "Vomit")
@@ -110,7 +117,7 @@ public class BuildingTower : MonoBehaviour
     {
         for (int i = 0; i < BuildingPrices.Length; i++)
         {
-            if (ScoreManager.coinScore >= BuildingPrices[i])
+            if (score.GetScore(ScoreType.Coin) >= BuildingPrices[i])
             {
                 // Text element will only be active when you are inside of a building trigger
                 if (vomitText.gameObject.activeSelf)

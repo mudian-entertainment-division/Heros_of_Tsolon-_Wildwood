@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (waypointIndex >= path.points.Length - 1)
         {
-            WaveSpawner.enemiesAlive--;
+            WaveSpawner.Instance.EnemiesAlive--;
             Destroy(gameObject);
             return;
         }

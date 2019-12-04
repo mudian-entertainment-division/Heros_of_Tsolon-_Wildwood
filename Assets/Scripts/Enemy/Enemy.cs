@@ -3,14 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using System.Xml.Serialization;
+using System.Xml;
+
+public class EnemyData
+{
+    [XmlAttribute("Enemy Variables")]
+    public int Health;
+    public bool Damage;
+    [XmlElement("Position")]
+    public Vector3 enemyPosition;
+}
+
 public class Enemy : MonoBehaviour
 {
     public int Health;
     public bool Damage;
     public Vector3 enemyPosition;
 
-    public GameObject scoreText;
-    public int Score;
+    public Text scoreText;
 
     public GameObject Coins;
 
@@ -22,18 +33,18 @@ public class Enemy : MonoBehaviour
         if (Health <= 0)
         {
             Instantiate(Coins, enemyPosition, Quaternion.identity);
-            ScoreManager.hordeScore += 1;
-            ScoreManager.playerScore += 1;
+            ScoreManager.Instance.AddScore(1, ScoreType.Horde);
+            ScoreManager.Instance.AddScore(1, ScoreType.Player);
 
-            WaveSpawner.enemiesAlive--;
+            WaveSpawner.Instance.EnemiesAlive--;
 
             Destroy(gameObject);
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             Damage = true;
-            Health -= 55;
+            Health -= 20;
         }
     }
     public void TakeDamage(int damage)
