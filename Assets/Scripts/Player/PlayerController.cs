@@ -15,11 +15,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        //Uses playerMotor script for movement
         motor = GetComponent<PlayerMotor>();
     }
 
     public Vector3 GetHitPoint()
     {
+        //Uses the mouse position to place location for player movement
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100, movementMask))
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Uses right mouse button for player movement.
         if (Input.GetMouseButton(1))
         {
             Vector3 hitPoint = GetHitPoint();

@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +8,7 @@ public class PlayerHandler : MonoBehaviour
     [Header("Value Variables")]
 
     public float curHealth, maxHealth;
+    //Health regen time
     public float healthPerSecond = 1f;
 
     [Header("Value Variables")]
@@ -46,6 +46,7 @@ public class PlayerHandler : MonoBehaviour
     }
     public void MinionObjectIndex(int indexRef)
     {
+        //Score is affected by how many minions you have
         ScoreManager.hordeScore -= MinionPrices[indexRef];
     }
     public void Update()
@@ -61,16 +62,16 @@ public class PlayerHandler : MonoBehaviour
             {
                 curHealth = 245;
             }
-            if (curHealth > 245)
-            {
-                curHealth = 245;
-            }
         }
+#if Unity_Editor
+        //Test button to see if damage works
         if (Input.GetKeyDown(KeyCode.A))
         {
             damaged = true;
             curHealth -= 5;
         }
+#endif
+        //Screen Flashes when damaged
         if (damaged)
         {
             damageImage.color = flashColor;
@@ -80,7 +81,7 @@ public class PlayerHandler : MonoBehaviour
         {
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
-
+        //Locates mouse for minion control
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 
         for (int i = 0; i < MinionPrices.Length; i++)

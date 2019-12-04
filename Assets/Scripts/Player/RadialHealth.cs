@@ -15,6 +15,7 @@ public class RadialHealth : MonoBehaviour
 
     void HealthChange()
     {
+        //Allows the damaging affect to take place
         float amount = Mathf.Clamp01(curHealth / maxHealth);
         radialHealthIcon.fillAmount = amount;
     }
@@ -23,12 +24,13 @@ public class RadialHealth : MonoBehaviour
     void Update()
     {
         HealthChange();
-
+        //When player is damaged remove 5 hitpoints
         if (Input.GetKeyDown(KeyCode.A))
         {
             damaged = true;
             curHealth -= 5;
         }
+        //When player is damaged flash screen
         if (damaged)
         {
             damageImage.color = flashColor;

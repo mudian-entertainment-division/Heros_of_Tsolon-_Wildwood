@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        //Show player attack box
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
@@ -32,6 +33,7 @@ public class PlayerAttack : MonoBehaviour
 
     Collider GetNearestHit(Collider[] hits)
     {
+        //searches for closest enemy to hit
         float minDistance = float.PositiveInfinity;
         Collider nearest = null;
         foreach (var hit in hits)
@@ -48,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        //Press Q to attack, Attack Pushes enemy back, Enemy takes damage
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Collider[] enemies = Physics.OverlapSphere(transform.position, detectionRadius, enemyLayer);

@@ -6,9 +6,9 @@ public class Bullet : MonoBehaviour
 {
     private Transform target;
 
-    public float speed = 70f;
+    public float speed = 70f;//speed at which the speed the bullet travels
 
-    public int damage = 150;
+    public int damage = 150;//sets the damage of the bullet
     public void Seek(Transform _target)
     {
         // Bullet finds the targets position

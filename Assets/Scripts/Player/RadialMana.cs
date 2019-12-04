@@ -24,12 +24,12 @@ public class RadialMana : MonoBehaviour
     void Update()
     {
         ManaChange();
-
+        //When an attack is used the mana pool goes down by 1
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             curMana -= 1;
         }
-
+        //Caps amount of mana available to the player
         if (curMana > 10)
         {
             curMana = 10;
@@ -37,6 +37,7 @@ public class RadialMana : MonoBehaviour
     }
     private void Timer()
     {
+        //Mana regeneration rate.
         curMana += ManaPerSecond;
     }
 }

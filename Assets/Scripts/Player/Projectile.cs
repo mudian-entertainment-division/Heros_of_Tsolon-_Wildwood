@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    //Sets damage of the attack to 50
     public int damage = 50;
     public GameObject hitEffect;
     private void OnTriggerEnter(Collider collider)

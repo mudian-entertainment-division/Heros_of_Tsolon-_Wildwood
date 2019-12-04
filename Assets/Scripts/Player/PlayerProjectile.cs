@@ -14,6 +14,7 @@ public class PlayerProjectile : MonoBehaviour
     
     private void Update()
     {
+        //If leftMouse is clicked then player will shoot the bullet
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Vector3 direction = player.GetHitPoint() - transform.position;
@@ -23,12 +24,14 @@ public class PlayerProjectile : MonoBehaviour
     }
     void Shoot(Vector3 direction)
     {
+        //Determines the direction and force of the bullet
         GameObject disintigration = Instantiate(magicPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = disintigration.GetComponent<Rigidbody>();
         rb.AddForce(direction.normalized * magicForce, ForceMode.Impulse);
     }
     public void OnTriggerEnter(Collider other)
     {
+        //When the bullet hits anything with a collider then bullet will be destroyed
         Destroy(gameObject);
     }
 }

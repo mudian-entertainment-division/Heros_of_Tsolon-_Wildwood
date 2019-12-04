@@ -10,7 +10,7 @@ public class Saw : MonoBehaviour
 
     public string enemyTag = "Enemy";
 
-    public int damage = 150;
+    public int damage = 150;//Sets amount of damage that the enemies take
 
     void OnTriggerEnter(Collider other)
     {

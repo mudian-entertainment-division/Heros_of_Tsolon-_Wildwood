@@ -17,15 +17,17 @@ public class WaveSpawner : MonoBehaviour
 
     public void Start()
     {
+        //Gives a path for the engine to find the enemy prefab
         enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
     }
     private void Update()
     {
+        //If there are eneimies alive then dont start next wave
         if(enemiesAlive > 0)
         {
             return;
         }
-
+        //If all enemies are dead then start countdown to next wave
         if(countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
@@ -38,6 +40,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
+        //Increase the number of enemies in the wave each round
         waveNum++;
 
         for (int i = 0; i < waveNum; i++)
@@ -49,6 +52,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
+        //Spwan enemy at the begining of each round
         GameObject Clone = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         enemiesAlive++;
     }

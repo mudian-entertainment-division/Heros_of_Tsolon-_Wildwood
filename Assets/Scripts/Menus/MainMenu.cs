@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
+        //Go between menu panel and settings panel
         if (Settings.settingsOpen)
         {
             SettingsGO.SetActive(true);
@@ -23,6 +24,7 @@ public class MainMenu : MonoBehaviour
     }
     public void ClickButton()
     {
+        //Allows the use of buttons on the menu screen
         switch (MenuSelect)
         {
             case menuSelect.Play:

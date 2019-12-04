@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FlameThrower : Tower
 {
-    public float fireRate = 1f;
+    public float fireRate = 1f;//Sets fire rate
     private float fireCountdown = 0f;
 
-    public float range = 15f;
+    public float range = 15f;//Sets range
     public Transform partToRotate;
-    public float turnSpeed = 8;
+    public float turnSpeed = 8;//sets the speed at which the tower turns
 
     public GameObject bulletPrefab;
     public Transform firePoint;

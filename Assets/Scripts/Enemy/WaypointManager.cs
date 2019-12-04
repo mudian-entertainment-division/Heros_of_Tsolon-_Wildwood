@@ -26,6 +26,7 @@ public class WaypointManager : MonoBehaviour
 
     public Waypoints GetRandomPath()
     {
+        //Picks one of three paths for the enemy to follow
         int randomIndex = Random.Range(0, waypointPaths.Length);
         return waypointPaths[randomIndex];
     }

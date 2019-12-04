@@ -14,6 +14,7 @@ public class MinionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Has sprites always facing camera
         cam = Camera.main;
         motor = GetComponent<PlayerMotor>();
     }
@@ -21,6 +22,7 @@ public class MinionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //moves seperate minions based on their team
         if (Input.GetKeyDown(KeyCode.Z))
         {
             MoveMinion("RedTeam");
@@ -36,6 +38,7 @@ public class MinionController : MonoBehaviour
     }
     public void MoveMinion(string tag)
     {
+        //Moves minion teams to mouse postion 
         if (gameObject.tag == tag)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
