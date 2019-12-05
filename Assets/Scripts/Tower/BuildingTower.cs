@@ -7,11 +7,14 @@ public class BuildingTower : MonoBehaviour
 {
     public Text vomitText;
     public Text sawText;
+    public Text rockText;
     public GameObject Vomit;
     public GameObject Saw;
+    public GameObject Rock;
 
     public bool allowSawBuild = true;
     public bool allowVomitBuild = true;
+    public bool allowRockBuild = true;
 
     [Header("Buildings")]
     public GameObject[] buildingObjectIndex;
@@ -26,8 +29,10 @@ public class BuildingTower : MonoBehaviour
         // All of these objects are set to off
         vomitText.gameObject.SetActive(false);
         sawText.gameObject.SetActive(false);
+        rockText.gameObject.SetActive(false);
         Vomit.gameObject.SetActive(false);
         Saw.gameObject.SetActive(false);
+        Rock.gameObject.SetActive(false);
     }
     private void Start()
     {
@@ -76,6 +81,21 @@ public class BuildingTower : MonoBehaviour
                 {
                     sawText.gameObject.SetActive(false);
                 }
+                // finds tag of building
+                if (buildingTrigger.tag == "Rock")
+                {
+                    allowRockBuild = true;
+
+                    if (allowRockBuild)
+                    {
+                        // All of these objects are set to on
+                        rockText.gameObject.SetActive(true);
+                    }
+                }
+                if (Rock.gameObject.activeSelf)
+                {
+                    rockText.gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -106,6 +126,16 @@ public class BuildingTower : MonoBehaviour
                         // All of these objects are set to off
                         sawText.gameObject.SetActive(false);
                         allowSawBuild = false;
+                    }
+                }
+                // finds tag of building
+                if (buildingTrigger.tag == "Rock")
+                {
+                    if (allowRockBuild)
+                    {
+                        // All of these objects are set to off
+                        rockText.gameObject.SetActive(false);
+                        allowRockBuild = false;
                     }
                 }
             }
@@ -154,7 +184,23 @@ public class BuildingTower : MonoBehaviour
                         }
                     }
                 }
-                
+                if (rockText.gameObject.activeSelf)
+                {
+                    // If I press E
+                    if (Input.GetKeyDown(KeyCode.T))
+                    {
+                        if (allowRockBuild)
+                        {
+                            // Disable text element
+                            rockText.gameObject.SetActive(false);
+                            // Enable Tower
+                            Rock.gameObject.SetActive(true);
+
+                            allowRockBuild = false;
+                            BuildingObjectIndex(i);
+                        }
+                    }
+                }
             }
         }
     }

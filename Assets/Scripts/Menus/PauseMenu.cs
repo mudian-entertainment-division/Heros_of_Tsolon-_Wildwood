@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    private bool isPaused;
+    public bool isPaused;
     private GameObject _pauseMenu;
     // Update is called once per frame
     void Start()
@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
         _pauseMenu = GameObject.FindGameObjectWithTag("Pausemenu");
         isPaused = false;//not pasued 
         Time.timeScale = 1;//start time
-        _pauseMenu.SetActive(false);//show pause menu
+        _pauseMenu.SetActive(false);//hide pause menu
 
     }
     void Update()
@@ -29,13 +29,13 @@ public class PauseMenu : MonoBehaviour
         {
             _pauseMenu.SetActive(false);//show pause menu
             isPaused = true;//not pasued 
-            Time.timeScale = 1;//start time
+            Time.timeScale = 0;//start time
         }
         else//is false if it is active
         {
             _pauseMenu.SetActive(true);//hide pause menu
             isPaused = false;//we are pasued
-            Time.timeScale = 0;//stop time
+            Time.timeScale = 1;//stop time
         }
     }
 }

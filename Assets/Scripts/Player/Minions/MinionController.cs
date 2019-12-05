@@ -7,6 +7,12 @@ public class MinionController : MonoBehaviour
 {
     public LayerMask movementMask;
 
+    public int health = 100;
+    public int damage = 10;
+    public bool Damage = false;
+
+    public Transform EnemyPos;
+
     Camera cam;
     PlayerMotor motor;
 
@@ -33,6 +39,22 @@ public class MinionController : MonoBehaviour
         {
             MoveMinion("GreenTeam");
         }
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<Enemy>() != null)
+        {
+            print("working ");
+            other.GetComponent<Enemy>().TakeDamage(damage);
+        }
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
     public void MoveMinion(string tag)
     {

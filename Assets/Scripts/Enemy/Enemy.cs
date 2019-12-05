@@ -17,7 +17,8 @@ public class EnemyData
 
 public class Enemy : MonoBehaviour
 {
-    public int Health;
+    public int Health = 100;
+    public int damage = 10;
     public bool Damage;
     public Vector3 enemyPosition;
 
@@ -47,6 +48,15 @@ public class Enemy : MonoBehaviour
             Health -= 20;
         }
     }
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<MinionController>() != null)
+        {
+            print("working 2");
+            other.GetComponent<MinionController>().TakeDamage(damage);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         Health -= damage;
