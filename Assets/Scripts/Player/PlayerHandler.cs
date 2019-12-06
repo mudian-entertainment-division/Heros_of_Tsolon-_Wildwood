@@ -31,13 +31,6 @@ public class PlayerHandler : MonoBehaviour
     public Image radialHealthIcon;
     public Image radialManaIcon;
 
-    [Header("Damage Effect Variables")]
-
-    public Image damageImage;
-    public float flashSpeed = 5;
-    public Color flashColor = new Color(1, 1, 0, 0.2f);
-    bool damaged;
-
     [Header("Spawning Minions")]
 
     public GameObject zombie;
@@ -105,19 +98,8 @@ public class PlayerHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            damaged = true;
             curHealth -= 5;
         }
-        if (damaged)
-        {
-            damageImage.color = flashColor;
-            damaged = false;
-        }
-        else
-        {
-            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-        }
-
 
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 
